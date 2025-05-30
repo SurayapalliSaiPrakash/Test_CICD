@@ -2,8 +2,8 @@ trigger:
   - main
 
 variables:
-  - group: dbw-cicd-dev
-  - group: dbw-cicd-prod
+  - group: cicd-dev
+  - group: cicd-prod
   
   - name: vmImageName
     value: "windows-latest"
