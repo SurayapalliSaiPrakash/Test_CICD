@@ -6,7 +6,6 @@ on:
       - main
       - dev
       - qa
-      - "feature/*"
       - patch
 
 jobs:
