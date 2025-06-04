@@ -1,0 +1,37 @@
+name: Terraform Databricks Deploy
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+      - qa
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    env:
+      DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
+      DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.6.0
+
+      - name: Terraform Init
+        run: terraform init
+
+      - name: Terraform Validate
+        run: terraform validate
+
+      - name: Terraform Plan
+        run: terraform plan -var="databricks_host=$DATABRICKS_HOST" -var="databricks_token=$DATABRICKS_TOKEN"
+
+      - name: Terraform Apply
+        run: terraform apply -auto-approve -var="databricks_host=$DATABRICKS_HOST" -var="databricks_token=$DATABRICKS_TOKEN"
