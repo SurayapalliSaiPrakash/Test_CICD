@@ -1,2 +1,2 @@
-databricks_host  = "https://<your-workspace>.cloud.databricks.com"
-databricks_token = "<your-token>"
+databricks_host  = ${{ secrets.DATABRICKS_HOST }}
+databricks_token = ${{ secrets.DATABRICKS_TOKEN }}
