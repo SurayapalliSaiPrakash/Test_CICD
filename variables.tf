@@ -1,6 +1,6 @@
 variable "databricks_host" {
   type        = string
-  description = "Workspace URL (e.g., https://<workspace>.cloud.databricks.com)"
+  description = "https://adb-1716834444966310.10.azuredatabricks.net"
 }
 
 variable "databricks_token" {
