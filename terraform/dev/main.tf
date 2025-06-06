@@ -9,7 +9,7 @@ resource "databricks_job" "load_gporoster_premier_test" {
   task {
     task_key = "run_gporoster_import"
     notebook_task {
-      notebook_path = /Workspace/Users/vbatulla@fffenterprises.com/.bundle/${BUNDLE_NAME}/dev/files/notebooks/batch/gporoster/roster_data_import
+      notebook_path = /Workspace/Users/vbatulla@fffenterprises.com/.bundle/${BUNDLE_NAME}/dev/files/notebooks/batch/gporoster/roster_data_import.path
     }
     existing_cluster_id = var.existing_cluster_id
   }
