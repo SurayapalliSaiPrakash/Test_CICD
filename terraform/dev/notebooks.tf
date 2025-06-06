@@ -1,6 +1,5 @@
-resource "databricks_repo" "gp_roster" {
-  url    = "https://github.com/your-org/your-databricks-notebooks-repo.git"
-  path   = "/Repos/your-email@example.com/gp-roster"
-  branch = "main"
+resource "databricks_notebook" "load_gporoster_premier" {
+  path     = "/Workspace/Shared/Notebooks/load_gporoster_premier"
+  language = "PYTHON"
+  source   = "../../notebook/batch/gporoster/load_gporoster_premier.py"
 }
-
