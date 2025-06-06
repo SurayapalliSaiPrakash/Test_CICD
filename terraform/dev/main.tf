@@ -12,7 +12,7 @@ resource "databricks_job" "load_gporoster_premier_test" {
   }
 
   notebook_task {
-    notebook_path = databricks_notebook.my_notebook.path
+    notebook_path = ../../notebook/batch/gporoster/roster_data_import.py
   }
 }
 
