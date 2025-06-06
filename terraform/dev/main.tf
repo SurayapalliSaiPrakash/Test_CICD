@@ -4,15 +4,14 @@ resource "databricks_notebook" "gporoster_import" {
   source   = "../../notebook/batch/gporoster/roster_data_import.py"
 }
 resource "databricks_job" "load_gporoster_premier_test" {
-  name = "ETL Job"
-  new_cluster {
-    num_workers   = 2
-    spark_version = "12.2.x-scala2.12"
-    node_type_id  = "Standard_DS3_v2"
-  }
+  name = "Load GPO Roster Premier Test"
 
-  notebook_task {
-    notebook_path = /Users/vbatulla@fffenterprises.com/development/data_load/gporoster/roster_data_import
+  task {
+    task_key = "run_gporoster_import"
+    notebook_task {
+      notebook_path = databricks_notebook.gporoster_import.path
+    }
+    existing_cluster_id = var.existing_cluster_id
   }
 }
 
