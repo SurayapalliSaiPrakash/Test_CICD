@@ -12,7 +12,7 @@ resource "databricks_job" "load_gporoster_premier_test" {
   }
 
   notebook_task {
-    notebook_path = ../../notebook/batch/gporoster/roster_data_import.py
+    notebook_path = /Users/vbatulla@fffenterprises.com/development/data_load/gporoster/roster_data_import
   }
 }
 
