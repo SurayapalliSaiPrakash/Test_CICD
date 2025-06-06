@@ -12,6 +12,10 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: terraform/dev  # point to the correct directory
+
     env:
       DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
       DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
@@ -35,4 +39,5 @@ jobs:
         run: terraform plan -var="databricks_host=$DATABRICKS_HOST" -var="databricks_token=$DATABRICKS_TOKEN"
 
       - name: Terraform Apply
+        if: github.ref == 'refs/heads/main'  #  Only apply on main
         run: terraform apply -auto-approve -var="databricks_host=$DATABRICKS_HOST" -var="databricks_token=$DATABRICKS_TOKEN"
