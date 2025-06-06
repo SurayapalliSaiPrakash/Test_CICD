@@ -1,9 +1,8 @@
-resource "databricks_notebook" "my_notebook" {
-  path     = "/Shared/ETL_Demo"
+resource "databricks_notebook" "gporoster_import" {
+  path     = "/Shared/gporoster/roster_data_import"
   language = "PYTHON"
-  source   = "load_gporoster_premier_test.yml"
+  source   = "${path.module}/../../notebook/batch/gporoster/roster_data_import.py"
 }
-
 resource "databricks_job" "load_gporoster_premier_test" {
   name = "ETL Job"
   new_cluster {
