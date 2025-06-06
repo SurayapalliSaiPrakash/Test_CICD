@@ -16,16 +16,6 @@ resource "databricks_job" "load_gporoster_premier_test" {
     notebook_path = databricks_notebook.my_notebook.path
   }
 }
-resource "databricks_pipeline" "dlt_pipeline" {
-  name = "sample_dlt_pipeline"
-  storage = "dbfs:/pipelines/storage"
-  target = "sample_target"
-
-  cluster {
-    num_workers   = 2
-    spark_version = "12.2.x-scala2.12"
-    node_type_id  = "Standard_DS3_v2"
-  }
 
   configuration = {
     "spark.master" = "local[*]"
