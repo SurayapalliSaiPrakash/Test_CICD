@@ -1,7 +1,7 @@
 resource "databricks_notebook" "my_notebook" {
   path     = "/Shared/ETL_Demo"
   language = "PYTHON"
-  source   = "notebooks/etl_job.py"
+  source   = "load_gporoster_premier_test.yml"
 }
 
 resource "databricks_job" "load_gporoster_premier_test" {
