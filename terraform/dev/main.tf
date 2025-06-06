@@ -17,25 +17,4 @@ resource "databricks_job" "load_gporoster_premier_test" {
   }
 }
 
-  configuration = {
-    "spark.master" = "local[*]"
-  }
-
-  libraries {
-    notebook {
-      path = databricks_notebook.my_notebook.path
-    }
-  }
-}
-
-resource "databricks_catalog" "my_catalog" {
-  name         = "my_catalog"
-  comment      = "Managed by Terraform"
-  isolation_mode = "OPEN"
-}
-
-resource "databricks_schema" "my_schema" {
-  name        = "my_schema"
-  catalog_name = databricks_catalog.my_catalog.name
-  comment     = "Schema created with Terraform"
-}
+  
