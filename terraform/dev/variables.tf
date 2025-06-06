@@ -8,3 +8,9 @@ variable "databricks_token" {
   description = "Personal Access Token or Service Principal token"
   sensitive   = true
 }
+
+variable "db_password" {
+  description = "Database password for GP Roster"
+  type        = string
+  sensitive   = true
+}
