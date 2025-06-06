@@ -1,7 +1,7 @@
 resource "databricks_notebook" "gporoster_import" {
   path     = "/Shared/gporoster/roster_data_import"
   language = "PYTHON"
-  source   = "${path.module}/../../notebook/batch/gporoster/roster_data_import.py"
+  source   = "../../notebook/batch/gporoster/roster_data_import.py"
 }
 resource "databricks_job" "load_gporoster_premier_test" {
   name = "ETL Job"
