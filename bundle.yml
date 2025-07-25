@@ -1,0 +1,46 @@
+bundle:
+  name: Nufactor-pipeline
+  
+#variables:
+  #warehouse_id:
+    #description: "ID of the SQL Warehouse to use"
+    #type: string
+    
+#include:
+  
+
+targets:
+  dev:
+    default: true
+    #workspace:
+      #host: https://adb-1716834444966310.10.azuredatabricks.net
+      #root_path: /Workspace/Shared 
+    #variables:
+      #warehouse_id: eacbc16dad227984
+
+  qa:
+    #workspace:
+      #host: https://adb-1414181569022831.11.azuredatabricks.net
+      #root_path: /Workspace/Shared
+    #variables:
+      #warehouse_id: abe44a1a08046c72
+    
+
+  prod:
+    workspace:
+      host: https://adb-233684294316369.9.azuredatabricks.net
+      #root_path: /Workspace/Shared
+    #variables:
+      #warehouse_id: b20300b816730016
+
+
+ 
+    
+
+
+
+ 
+    
+    
+
+          
